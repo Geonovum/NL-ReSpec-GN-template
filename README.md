@@ -4,7 +4,7 @@ ReSpec is een tool om html en pdf documenten te genereren op basis van markdown 
 
 Gebruik de knop [_Use this template_](https://github.com/Logius-standaarden/ReSpec-template/generate) om aan de slag te gaan. Dit maakt een kopie van de template in uw eigen GitHub repository die dan aangepast en uitgebreid kan worden.
 
-De dynamische pagina is van het template document [hier](https://logius-standaarden.github.io/ReSpec-template/) te zien.
+De dynamische pagina is van het template document [hier](https://geonovum.github.io/NL-ReSpec-GN-template/) te zien.
 
 Deze repository bevat ook de GitHub Workflows om een statische HTML-pagina en PDF-document te genereren en enkele controles uit te voeren. Deze workflows worden 
 automatisch gerund zodra er een aanpassing gedaan wordt aan de main branch.
