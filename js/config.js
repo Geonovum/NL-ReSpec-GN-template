@@ -1,35 +1,37 @@
 let respecConfig = {
   useLogo: true,
   useLabel: true,
-  license: "cc0",
+  //default voor Geonovum is cc-by, eventueel is het mogelijk een andere licentie (cc0 of cc-by-nd) hier te kiezen voor het document.
+  //license: "cc-by",
   specStatus: "WV",
   specType: "HR",
   pubDomain: "dk",
-  shortName: "template",
-  publishDate: "2022-06-24",
-  publishVersion: "0.0.2",
-  
-  previousVersion: "0.0.1",
+  shortName: "NL-ReSpec-GN-template",
+  publishDate: "2023-03-28",
+  //eventueel is het mogelijk een versienummer mee te geven, maar bij Geonovum werken we standaard alleen met datum als onderdeel van de permanente URI.
+  //publishVersion: "0.0.2",
+  //previousVersion: "0.0.1",
   previousPublishDate: "2014-05-01",
   previousMaturity: "EO",
-  title: "titleText",
+  title: "[Neem titel op in config.js]",
   editors:
     [
       {
-        name: "Logius Standaarden",
-        company: "Logius",
-        companyURL: "https://github.com/Logius-standaarden",
+        name: "voornaam achternaam",
+        company: "Geonovum",
+        companyURL: "https://www.geonovum.nl",
       }
     ],
   authors:
     [
       {
-        name: "Logius Standaarden",
-        company: "Logius",
-        companyURL: "https://github.com/Logius-standaarden",
+        name: "voornaam achternaam",
+        company: "Geonovum",
+        companyURL: "https://www.geonovum.nl",
       }
     ],
-  github: "https://github.com/Logius-standaarden/ReSpec-template",
+  //neem hier de URL van de github repository op waar het respec document in staat
+  github: "https://github.com/geonovum/NL-ReSpec-GN-template",
 
 
   // Create PDF and link to file in header (optional):
