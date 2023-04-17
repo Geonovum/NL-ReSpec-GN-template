@@ -11,7 +11,6 @@ Deze repository bevat ook de GitHub Workflows om een statische HTML-pagina en PD
 ### Vereiste voor gebruik
 - Kennis van git/github
 - Kennis van markdown en/of HTML
-- Kennis van de vorm van een Javascript object
 - Een webserver om de documentatie te hosten
 
 ### Gebruikersinstructie
@@ -84,3 +83,32 @@ alternateFormats: [
   },
 ]
 ```
+
+### Transitie van 'oude' Geonovum ReSpec naar NL-ReSpec van Logius
+
+Hieronder staan de instructies voor gebruikers van Geonovum ReSpec die willen overstappen naar de nieuwe NL-ReSpec. 
+
+Als je een gepubliceerd document wilt omzetten naar de nieuwe ReSpec:
+- Dit hoeft niet. Eenmaal op docs gepubliceerde documenten hoeven niet aangepast te worden.
+
+Als je een bestaand werkdocument wilt omzetten naar de nieuwe ReSpec:
+- Pas de `<head>` van index.html aan. Wat er in moet staan kun je afkijken in [template index.html](https://github.com/Geonovum/NL-ReSpec-GN-template/blob/main/index.html). Het is belangrijk dat je in ieder geval de link naar `geonovum-config.js` en `respec-nlgov.js` overneemt. Vraag eventueel hulp aan de ReSpec beheerders.
+- Pas in `config.js` de volgende configuratie items aan: 
+
+`title`. Dit is een nieuwe config optie. De hoofdtitel van je document zet je voortaan in `config.js` in plaats van bovenin `index.html`. Voorbeeld: 
+
+`title: "Informatiemodel Golf",`
+
+`specStatus`. De afkortingen zijn veranderd en er zijn opties bijgekomen. Dit kan nu zijn: 
+<pre>
+wv: "Werkversie",
+cv: "Consultatieversie",
+vv: "Versie ter vaststelling",
+def: "Vastgestelde versie",
+basis: "Document",
+eo: "Verouderde versie",
+tg: "Teruggetrokken versie",
+</pre>
+
+Als je een nieuw werkdocument gaat maken: 
+- gebruik de [template](https://github.com/Geonovum/NL-ReSpec-GN-template). Klik op `Use this template` en kies `Create a new repository`. Er wordt dan een nieuwe repository ingericht op basis van de nieuwe respec, waarmee je direct aan de slag kunt. Neem contact op met een van de github beheerders als je zelf geen github repository kan aanmaken. 
