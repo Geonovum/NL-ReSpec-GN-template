@@ -1,4 +1,4 @@
-// Plaats dit bestand op een centrale locatie voor hergebruik in meerdere documenten.
+// Dit bestand is gepubliceerd als https://tools.geostandaarden.nl/respec/config/geonovum-config.js, voor hergebruik in Geonovum ReSpec documenten.
 var organisationConfig = {
     nl_organisationName: "Geonovum",
     // werkt nog niet 
