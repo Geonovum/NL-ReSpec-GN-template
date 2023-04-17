@@ -2,12 +2,11 @@
 
 ReSpec is een tool om html en pdf documenten te genereren op basis van markdown content.
 
-Gebruik de knop [_Use this template_](https://github.com/Logius-standaarden/ReSpec-template/generate) om aan de slag te gaan. Dit maakt een kopie van de template in uw eigen GitHub repository die dan aangepast en uitgebreid kan worden.
+Gebruik de knop [_Use this template_](https://github.com/Geonovum/NL-ReSpec-GN-template/generate) om aan de slag te gaan. Dit maakt een kopie van de template in uw eigen GitHub repository die dan aangepast en uitgebreid kan worden.
 
 De dynamische pagina is van het template document [hier](https://geonovum.github.io/NL-ReSpec-GN-template/) te zien.
 
-Deze repository bevat ook de GitHub Workflows om een statische HTML-pagina en PDF-document te genereren en enkele controles uit te voeren. Deze workflows worden 
-automatisch gerund zodra er een aanpassing gedaan wordt aan de main branch.
+Deze repository bevat ook de GitHub Workflows om een statische HTML-pagina en PDF-document te genereren en enkele controles uit te voeren. Deze workflows worden automatisch gerund zodra er een aanpassing gedaan wordt aan de main branch.
 
 ### Vereiste voor gebruik
 - Kennis van git/github
@@ -23,7 +22,7 @@ Aanpassingen maken aan het document gaat op 2 manieren:
 - De configuratie van het document aanpassing in de config files
 - Markdown files toevoegen/veranderen
 
-De **configuratie files** bevat informatie over de organisatie en over 
+De **configuratie files** bevatten informatie over de organisatie en over 
 de status van het document. Bekijk de [Logius ReSpec wiki](https://github.com/Logius-standaarden/respec/wiki) 
 voor meer informatie over de configuratie opties. De files zijn gesplitst in 2 files:
 [organisation-config.js](js/organisation-config.js) en [config.js](js/config.js).
@@ -32,28 +31,29 @@ Deze files zijn te vinden in de `js` folder.
 De organisation_config bevat informatie over de organisatie, de informatie in deze file 
 zal bijna nooit veranderen zoals de naam van de organisatie. Het wordt aangeraden de file 
 zelf te hosten zodat hij in alle documentatie van de organisatie gebruikt kan worden en
-niet elke keer gekopieerd hoeft te worden
+niet elke keer gekopieerd hoeft te worden. Geonovum host dit file onder de naam `geonovum-config.js` op https://tools.geostandaarden.nl/respec/config, zodat deze configuratie centraal ingevuld is en hergebruikt kan worden. 
 
-De document_config bevat informatie die alleen relevant is voor het huidige document.
+De document_config in [config.js](js/config.js) bevat informatie die alleen relevant is voor het huidige document. Hier kun je instellingen regelen voor het document dat je gaat schrijven, zoals documenttype, status, auteurs, etc. 
 
 Beide configuratie bestanden worden gelinkt in de `index.html` file.
 
 **Markdown files** bevatten de content van het document. Alle content
 kan in 1 document, maar het is aan te raden om de content te splitsen
-in verschillende files met een toepasselijke naam om onderhoud 
-makkelijker te maken.
+in verschillende files, bijvoorbeeld per hoofdstuk, met een toepasselijke naam om onderhoud 
+makkelijker te maken. HTML is overigens ook mogelijk.
 
 Na het toevoegen van een nieuwe markdown file moet hij toegevoegd worden
 aan de [index.html](index.html). Je voegt hem toe door de naam en eventueel relevante CSS class 
-toe te voegen aan het ```content``` object in de ```config.js```. 
-De volgorde van ```content``` bepaalt de volgorde in het resulterende document.
+toe te voegen aan de lijst met "data includes":
 
-```content: {"ch01": "informative", "mermaid": ""},```
-Deze code voegt 2 markdown files toe:
-- `ch01.md` met de CSS class `informative`
-- `mermaid.md` zonder CSS class
+<pre>
+  &amp;section data-include-format="markdown" data-include="ch01.md" class="informative">&amp;/section>
+  &amp;section data-include-format="markdown" data-include="ch02.md">&amp;/section>
+</pre>
 
-voor een volledige lijst van CSS classes zie de [ReSpec Documentation](https://respec.org/docs/#css-classes)
+Dat wil zeggen, voeg een `<section>` toe met op de plaats van "ch01.md" de naam van het bestand. 
+
+Voor een volledige lijst van CSS classes zie de [ReSpec Documentation](https://respec.org/docs/#css-classes)
 
 Deze classes zijn ook binnen de markdown files te gebruiken op de volgende manier:  
 ```<div class="example">voorbeeld</div>```
