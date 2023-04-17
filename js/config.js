@@ -8,11 +8,11 @@ let respecConfig = {
   pubDomain: "dk",
   shortName: "NL-ReSpec-GN-template",
   publishDate: "2023-03-28",
-  //eventueel is het mogelijk een versienummer mee te geven, maar bij Geonovum werken we standaard alleen met datum als onderdeel van de permanente URI.
+  //eventueel is het mogelijk een versienummer mee te geven, maar bij Geonovum werken we gewoonlijk alleen met datum als onderdeel van de permanente URI.
   //publishVersion: "0.0.2",
   //previousVersion: "0.0.1",
   previousPublishDate: "2014-05-01",
-  previousMaturity: "EO",
+  previousMaturity: "CV",
   title: "[Neem titel op in config.js]",
   editors:
     [
