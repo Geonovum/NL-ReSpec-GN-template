@@ -93,6 +93,12 @@ Als je een gepubliceerd document wilt omzetten naar de nieuwe ReSpec:
 
 Als je een bestaand werkdocument wilt omzetten naar de nieuwe ReSpec:
 - Pas de `<head>` van index.html aan. Wat er in moet staan kun je afkijken in [template index.html](https://github.com/Geonovum/NL-ReSpec-GN-template/blob/main/index.html). Het is belangrijk dat je in ieder geval de link naar `geonovum-config.js` en `respec-nlgov.js` overneemt. Vraag eventueel hulp aan de ReSpec beheerders.
+ - Pas in `config.js` de `specStatus aan. De afkortingen zijn veranderd (!): 
+   - `wv` of `WV` = Werkversie
+   - `cv` of `CV` = Consultatieversie
+   - `vv` of `VV` = Versie ter vaststelling
+   - `def` of `DEF` = Vastgestelde versie
+   - `basis` of `BASIS` = Basis Document
 - Pas in `config.js` de `title` aan. Dit is een nieuwe config optie. De hoofdtitel van je document zet je voortaan in `config.js` in plaats van bovenin `index.html`. Voorbeeld: 
 
 `title: "Informatiemodel Golf",`
