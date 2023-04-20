@@ -265,48 +265,48 @@ ul.index code{color:inherit}
   },
   "specStatusText": {
     "en": {
-      "wv": "Editor's draft",
-      "cv": "Candidate recommendation",
-      "vv": "Proposed recommendation",
-      "def": "Recommendation",
-      "basis": "Document",
-      "eo": "Outdated version",
-      "tg": "Rescinded version"
+      "gn-wv": "Editor's draft",
+      "gn-cv": "Candidate recommendation",
+      "gn-vv": "Proposed recommendation",
+      "gn-def": "Recommendation",
+      "gn-basis": "Document",
+      "gn-eo": "Outdated version",
+      "gn-tg": "Rescinded version"
     },
     "nl": {
-      "wv": "Werkversie",
-      "cv": "Consultatieversie",
-      "vv": "Versie ter vaststelling",
-      "def": "Vastgestelde versie",
-      "basis": "Document",
-      "eo": "Verouderde versie",
-      "tg": "Teruggetrokken versie"
+      "gn-wv": "Werkversie",
+      "gn-cv": "Consultatieversie",
+      "gn-vv": "Versie ter vaststelling",
+      "gn-def": "Vastgestelde versie",
+      "gn-basis": "Document",
+      "gn-eo": "Verouderde versie",
+      "gn-tg": "Teruggetrokken versie"
     }
   },
   "sotdText": {
     "nl": {
       "sotd": "Status van dit document",
-      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
-      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.",
-      "cv": "Dit is een consultatieversie. Commentaar over dit document kan gestuurd worden naar ",
-      "vv": "Dit is de definitieve conceptversie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
-      "basis": "Dit is een document zonder officiële status."
+      "gn-def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "gn-wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.",
+      "gn-cv": "Dit is een consultatieversie. Commentaar over dit document kan gestuurd worden naar ",
+      "gn-vv": "Dit is de definitieve conceptversie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "gn-basis": "Dit is een document zonder officiële status."
     },
     "en": {
       "sotd": "Status of this document",
-      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
-      "wv": "This is a work in progress editor's draft that could be altered, removed or replaced by other documents. It is not a stable document.",
-      "cv": "This is a stable draft, published for public comment. Comments regarding this document may be sent to ",
-      "vv": "This is the final draft of this document. Edits resulting from consultations have been applied.",
-      "basis": "This document has no official standing."
+      "gn-def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "gn-wv": "This is a work in progress editor's draft that could be altered, removed or replaced by other documents. It is not a stable document.",
+      "gn-cv": "This is a stable draft, published for public comment. Comments regarding this document may be sent to ",
+      "gn-vv": "This is the final draft of this document. Edits resulting from consultations have been applied.",
+      "gn-basis": "This document has no official standing."
     }
   },
   "labelColor": {
-    "def": "#045D9F",
-    "wv": "#FF0000",
-    "cv": "#045D9F",
-    "vv": "#045D9F",
-    "basis": "#80CC28"
+    "gn-def": "#045D9F",
+    "gn-wv": "#FF0000",
+    "gn-cv": "#045D9F",
+    "gn-vv": "#045D9F",
+    "gn-basis": "#80CC28"
   },
   "licenses": {
     "cc0": {
@@ -329,23 +329,40 @@ ul.index code{color:inherit}
     }
   },
   "localBiblio": {
-    "SemVer": {
-      "href": "https://semver.org",
-      "title": "Semantic Versioning 2.0.0",
-      "authors": [
-        "T. Preston-Werner"
-      ],
-      "date": "June 2013",
-      "id": "semver"
+    "PUB-1": {
+      "title": "Titel van Publicatie-1",
+      "href": "https://www.geonovum.nl",
+      "status": "V1.0.1",
+      "publisher": "Publisher-1",
+      "company": "Companynaam"
+    },
+    "PUB-2": {
+      "title": "Titel van Publicatie-2",
+      "href": "https://www.geonovum.nl",
+      "status": "V1.0.1",
+      "publisher": "Publisher-2",
+      "company": "Companynaam"
+    },
+    "PUB-3": {
+      "title": "Titel van Publicatie-3",
+      "href": "https://www.geonovum.nl",
+      "status": "V1.0.1",
+      "publisher": "Publisher-3",
+      "company": "Companynaam"
+    },
+    "PUB-4": {
+      "title": "Titel van Publicatie-4",
+      "href": "https://www.geonovum.nl",
+      "status": "V1.0.1",
+      "publisher": "Publisher-4",
+      "company": "Companynaam"
     }
   },
-  "specStatus": "CV",
+  "licence": "cc-by",
+  "specStatus": "GN-WV",
   "specType": "HR",
   "pubDomain": "dk",
   "shortName": "NL-ReSpec-GN-template",
-  "publishDate": "2023-03-28",
-  "previousPublishDate": "2014-05-01",
-  "previousMaturity": "CV",
   "title": "[Neem titel op in config.js]",
   "editors": [
     {
@@ -371,60 +388,10 @@ ul.index code{color:inherit}
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css"></head>
 
-<body class="h-entry"><div class="head">
-    <a class="logo" href="https://www.geonovum.nl/geo-standaarden"><img alt="Geonovum" height="67" id="Geonovum" src="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.svg" width="132">
-  </a> <h1 id="title" class="title">[Neem titel op in config.js]</h1>
-    
-    <h2>
-      Geonovum Handreiking<br>
-      Consultatieversie
-      <time class="dt-published" datetime="2023-03-28">28 maart 2023</time>
-    </h2>
-    <dl>
-      <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://docs.geostandaarden.nl/dk/cv-hr-nl-respec-gn-template-2023-03-28">https://docs.geostandaarden.nl/dk/cv-hr-nl-respec-gn-template-2023-03-28</a>
-            </dd><dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://docs.geostandaarden.nl/dk/nl-respec-gn-template/">https://docs.geostandaarden.nl/dk/nl-respec-gn-template/</a>
-            </dd>
-      <dt>Laatste werkversie:</dt><dd><a href="https://geonovum.github.io/nl-respec-gn-template">https://geonovum.github.io/nl-respec-gn-template</a></dd>
-      
-      
-      
-      <dt>Vorige versie</dt><dd><a href="https://docs.geostandaarden.nl/dk/cv-hr-nl-respec-gn-template-2014-05-01">https://docs.geostandaarden.nl/dk/cv-hr-nl-respec-gn-template-2014-05-01</a></dd>
-      
-      <dt>Redacteur:</dt>
-      <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">voornaam achternaam</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
-  </dd>
-      
-      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">voornaam achternaam</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
-  </dd>
-      <dt>Doe mee:</dt><dd>
-    <a href="https://github.com/geonovum/NL-ReSpec-GN-template/">GitHub geonovum/NL-ReSpec-GN-template</a>
-  </dd><dd>
-    <a href="https://github.com/geonovum/NL-ReSpec-GN-template/issues/">Dien een melding in</a>
-  </dd><dd>
-    <a href="https://github.com/geonovum/NL-ReSpec-GN-template/commits/">Revisiehistorie</a>
-  </dd><dd>
-    <a href="https://github.com/geonovum/NL-ReSpec-GN-template/pulls/">Pull requests</a>
-  </dd>
-    </dl>
-    
-    
-    <p>
-          Dit document is ook beschikbaar in dit niet-normatieve formaat:
-          <a rel="alternate" href="template.pdf">pdf</a>
-        </p>
-    <p class="copyright">
-          Dit document valt onder de volgende licentie: 
-          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot">Creative Commons Attribution 4.0 International Public License</a>.
-        </p>
-    <hr title="Separator for header">
-  </div>
+<body><h1 id="title" class="title">[Neem titel op in config.js]</h1>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Tekst</p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een consultatieversie. Commentaar over dit document kan gestuurd worden naar </p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
 
   
   <section class="informative" id="niet-normatieve-deel"><div class="header-wrapper"><h2 id="x1-niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</h2><a class="self-link" href="#niet-normatieve-deel" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
@@ -444,7 +411,7 @@ Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config
       </figure>
     <p></p>
 </section><section id="referenties"><div class="header-wrapper"><h3 id="x2-3-referenties"><bdi class="secno">2.3 </bdi>Referenties</h3><a class="self-link" href="#referenties" aria-label="Permalink for Section 2.3"></a></div>
-<p>Referentie uit locale lijst [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>]. Lijst staat in <code>organisation-config.js</code>. Alleen referenties die in de tekst voorkomen worden getoond.</p>
+<p>Referentie uit locale lijst [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-semver" title="Reference &quot;[SemVer]&quot; not found." id="respec-offender-reference-semver-not-found">SemVer</a></cite>]. Lijst staat in <code>organisation-config.js</code>. Alleen referenties die in de tekst voorkomen worden getoond.</p>
 <p>We gebruiken een <a href="#dfn-definitie" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-definitie-1">definitie</a> om een woord te omschrijven.</p>
 </section><section id="optioneel"><div class="header-wrapper"><h3 id="x2-4-optioneel"><bdi class="secno">2.4 </bdi>Optioneel</h3><a class="self-link" href="#optioneel" aria-label="Permalink for Section 2.4"></a></div>
 <p>De onderstaande secties (<em>Conformiteit</em> e.d.) zijn optioneel, zie <code>index.html</code>:</p>
@@ -496,7 +463,7 @@ Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-referenties"><bdi class="secno">B. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normatieve-referenties">
     <div class="header-wrapper"><h3 id="b-1-normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix B.1"></a></div>
     <dl class="bibliography"><dt id="bib-semver">[SemVer]</dt><dd>
-      <a href="https://semver.org"><cite>Semantic Versioning 2.0.0</cite></a>. T. Preston-Werner. June 2013. URL: <a href="https://semver.org">https://semver.org</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -734,4 +701,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel" style="background-color: #045D9F;">Geonovum Handreiking - Consultatieversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel" style="background-color: #FF0000;">Geonovum undefined - undefined</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
