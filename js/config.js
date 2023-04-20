@@ -3,7 +3,7 @@ let respecConfig = {
   useLabel: true,
   //default voor Geonovum is cc-by, eventueel is het mogelijk een andere licentie (cc0 of cc-by-nd) hier te kiezen voor het document.
   //license: "cc-by",
-  specStatus: "gn-wv",
+  specStatus: "wv",
   specType: "HR",
   pubDomain: "dk",
   shortName: "NL-ReSpec-GN-template",
