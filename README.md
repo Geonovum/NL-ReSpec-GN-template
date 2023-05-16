@@ -104,4 +104,4 @@ Als je een bestaand werkdocument wilt omzetten naar de nieuwe ReSpec:
 `title: "Informatiemodel Golf",`
 
 Als je een nieuw werkdocument gaat maken: 
-- gebruik de [template](https://github.com/Geonovum/NL-ReSpec-GN-template). Klik op `Use this template` en kies `Create a new repository`. Er wordt dan een nieuwe repository ingericht op basis van de nieuwe respec, waarmee je direct aan de slag kunt. Neem contact op met een van de github beheerders als je zelf geen github repository kan aanmaken. 
+- gebruik de [template](https://github.com/Geonovum/NL-ReSpec-GN-template). Klik op `Use this template` en kies `Create a new repository`. Er wordt dan een nieuwe repository (dat al wel aangemaakt moet zijn) ingericht op basis van de nieuwe respec, waarmee je direct aan de slag kunt. Pas in `config.js` de titel van je document aan zoals hierboven beschreven. Neem contact op met een van de github beheerders als je zelf geen github repository kan aanmaken. 
