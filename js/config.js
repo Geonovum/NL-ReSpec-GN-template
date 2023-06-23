@@ -19,7 +19,6 @@ let respecConfig = {
   //specType: "BD",                 // Beheer Documentatie
   //specType: "AL",                 // Algemeen document
   //specType: "BP",                 // Best Practice
-  specType: "HR",
   //-- pubDomain is verplicht! (komt in de URL) -------------------------------------
   pubDomain: "dk",
   //-- license: voor de geldende gebruiksvoorwaarden. Default is cc-by.
