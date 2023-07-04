@@ -27,6 +27,10 @@ let respecConfig = {
   licence: "cc-by",                 // Attribution, met bronvermelding
   //-- shortName is verplicht! (komt in de URL: kies logische afkorting)--------------
   shortName: "NL-ReSpec-GN-template",
+  
+  //edDraftURI = De URI van de draft version. Deze wordt automatisch afgeleid van de github URI; maar kan hier overschreven worden. 
+	//edDraftURI: ["https://geonovum.github.io", "/", "shortName"],
+
   //-- publishDate is verplicht -------------------------------------------------------
   //-- NB: in de werkversie uitzetten, want dan pakt Respec de pushdate ---------------
   //publishDate: "2023-03-28",
