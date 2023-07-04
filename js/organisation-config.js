@@ -18,8 +18,6 @@ var organisationConfig = {
 	
 	postProcess: [window.respecMermaid.createFigures],
 
-    // NB dit gaat ervan uit dat shortName = naam van de repository. Maar dit zal niet altijd het geval zijn. We kunnen edDraftURI ook nog steeds in de config.js opnemen.
-	edDraftURI: ["https://geonovum.github.io", "/", "shortName"],
 	latestVersion: ["nl_organisationPublishURL", "pubDomain", "/", "shortName", "/"],
     thisVersion: ["nl_organisationPublishURL", "pubDomain", "/", "specStatus", "-", "specType", "-", "shortName", "-", "publishDate"],
     prevVersion: ["nl_organisationPublishURL", "pubDomain", "/", "previousMaturity", "-", "specType", "-", "shortName", "-", "previousPublishDate"],
@@ -43,8 +41,7 @@ var organisationConfig = {
             im: "Information model",
             pr: "Practical guideline",
             hr: "Guide",
-            // goede vertaling ontbreekt nog voor 'werkafspraak'
-            wa: "Werkafspraak",
+            wa: "Work process agreement",
             al: "General",
             bd: "Governance documentation",
             bp: "Best practice",
@@ -66,52 +63,6 @@ var organisationConfig = {
             al: "Algemeen",
             bd: "Beheerdocumentatie",
             bp: "Best practice",
-        },
-    },
-
-    specTypeText: {
-        en: {
-            no: "Norm",
-            st: "Standard",
-            im: "Information model",
-            pr: "Guideline",
-            hr: "Guide",
-            wa: "Werkafspraak",
-            al: "General",
-            bd: "Governance documentation",
-            bp: "Best practice",
-        },
-        nl: {
-            no: "Norm",
-            st: "Standaard",
-            im: "Informatiemodel",
-            pr: "Praktijkrichtlijn",
-            hr: "Handreiking",
-            wa: "Werkafspraak",
-            al: "Algemeen",
-            bd: "Beheerdocumentatie",
-            bp: "Best practice",
-        },
-    },
-
-    specStatusText: {
-        en: {
-            wv: "Editor's draft",
-            cv: "Candidate recommendation",
-            vv: "Proposed recommendation",
-            def: "Recommendation",
-            basis: "Document",
-            //eo: "Outdated version",
-            //tg: "Rescinded version",
-        },
-        nl: {
-            wv: "Werkversie",
-            cv: "Consultatieversie",
-            vv: "Versie ter vaststelling",
-            def: "Vastgestelde versie",
-            basis: "Document",
-            //eo: "Verouderde versie",
-            //tg: "Teruggetrokken versie",
         },
     },
 
