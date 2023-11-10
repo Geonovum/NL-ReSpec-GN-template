@@ -20,12 +20,12 @@ let respecConfig = {
   //specType: "AL",                 // Algemeen document
   //specType: "BP",                 // Best Practice
   //-- pubDomain is verplicht! (komt in de URL) -------------------------------------
-  pubDomain: "dk",
+  pubDomain: "TODO",
   //-- license: voor de geldende gebruiksvoorwaarden. Default is cc-by.
   //licence: "cc-by-nd",            // bronvermelding, geen afgeleide werken (default)
   //licence: "cc0",                 // Public Domain Dedication
   licence: "cc-by",                 // Attribution, met bronvermelding
-  //-- shortName is verplicht! (komt in de URL: kies logische afkorting)--------------
+  //-- TODO shortName is verplicht! (komt in de URL: kies logische afkorting)--------------
   shortName: "NL-ReSpec-GN-template",
   
   //edDraftURI = De URI van de draft version. Deze wordt automatisch afgeleid van de github URI; maar kan hier overschreven worden. 
@@ -40,7 +40,7 @@ let respecConfig = {
   //-- Voor dit blok geldt: alleen als er eerdere versies zijn en altijd beiden aan/uit! 
   //previousPublishDate: "2014-05-01",
   //previousMaturity: "CV",
-  //-- de namen van de Editor(s) / Redacteur(en)---------------------------------------
+  //-- TODO: de namen van de Editor(s) / Redacteur(en)---------------------------------------
   //-- vul in: per Editor: name:, company:, companyURL: -------------------------------
   editors:
     [
@@ -63,6 +63,7 @@ let respecConfig = {
   //neem hier de URL van de github repository op waar het respec document in staat
   github: "https://github.com/Geonovum/NL-ReSpec-GN-template",
   // Create PDF and link to file in header (optional):
+  // TODO: Change the filename as preferred.
   alternateFormats: [
       {
           label: "pdf",
