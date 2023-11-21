@@ -20,6 +20,7 @@ let respecConfig = {
   //specType: "AL",                 // Algemeen document
   //specType: "BP",                 // Best Practice
   //-- pubDomain is verplicht! (komt in de URL) -------------------------------------
+  //-- zie: https://geonovum.github.io/handleiding-tooling/ReSpec/#pubdomain
   pubDomain: "TODO",
   //-- license: voor de geldende gebruiksvoorwaarden. Default is cc-by.
   //licence: "cc-by-nd",            // bronvermelding, geen afgeleide werken (default)
