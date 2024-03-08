@@ -61,6 +61,7 @@ let respecConfig = {
         companyURL: "https://www.geonovum.nl",
       }
     ],
+  // TODO: Vul de github URL in.
   //neem hier de URL van de github repository op waar het respec document in staat
   github: "https://github.com/Geonovum/NL-ReSpec-GN-template",
   // Create PDF and link to file in header (optional):
