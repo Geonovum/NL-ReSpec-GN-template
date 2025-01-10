@@ -72,4 +72,19 @@ let respecConfig = {
           uri: "template.pdf",
       },
   ],
+  // Lokale lijst voor bibliografie
+  // - Kijk eerst naar de beschikbare www.specref.org .
+  // - Kijk daarna in de organisatieconfig.
+  // - Voeg dan pas hieronder toe.
+  localBiblio: 
+  {
+    MIM12: {
+      id: "MIM12",
+      title: "MIM - Metamodel Informatie Modellering (Versie 1.2)",
+      href: "https://docs.geostandaarden.nl/mim/def-st-mim-20240613/",
+      status: "Definitief",
+      publisher: "Geonovum",
+      date: "2024-06-13"
+    }
+  }
 };
