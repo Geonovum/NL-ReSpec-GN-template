@@ -26,15 +26,17 @@ jobs:
           mv !(content) content
 
       - name: Create branch and PR in docs repo
+        env:
+          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
         run: |
           # Config
           REPO="Geonovum/docs.geostandaarden.nl"
           BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
           TARGET_DIR="docs-repo"
           COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
-
+          
           # Clone repo
-          git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
+          git clone https://x-access-token:${{ env.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
           cd $TARGET_DIR
 
           # Maak branch
