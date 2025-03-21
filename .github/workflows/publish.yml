@@ -24,6 +24,14 @@ jobs:
           mkdir content
           shopt -s extglob
           mv !(content) content
+      - name: Debug secret beschikbaarheid
+        run: |
+          if [ -z "${{ secrets.GH_PUSH_TOKEN }}" ]; then
+            echo "❌ GH_PUSH_TOKEN is NIET beschikbaar in deze workflow!"
+            exit 1
+          else
+            echo "✅ GH_PUSH_TOKEN is correct geladen."
+          fi
 
       - name: Create branch and PR in docs repo
         env:
