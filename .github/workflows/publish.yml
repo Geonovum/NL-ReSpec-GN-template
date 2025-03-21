@@ -6,7 +6,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-22.04
-    if: github.event_name == 'release'
+#    if: github.event_name == 'release'
     steps:
       - uses: actions/checkout@v4
 
@@ -25,13 +25,39 @@ jobs:
           shopt -s extglob
           mv !(content) content
 
-      - name: Push to docs.geostandaarden.nl
+      - name: Install GitHub CLI
+        uses: cli/cli-action@v2
+
+      - name: Create branch and PR in docs repo
         run: |
-          git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/Geonovum/docs.geostandaarden.nl.git docs-repo
-          cd docs-repo
-          git config user.name "GitHub Action"
-          git config user.email "deploy-bot@geonovum.nl"
+          # Config
+          REPO="Geonovum/docs.geostandaarden.nl"
+          BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
+          TARGET_DIR="docs-repo"
+          COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
+
+          # Clone repo
+          git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
+          cd $TARGET_DIR
+
+          # Maak branch
+          git checkout -b $BRANCH
+
+          # Kopieer output
           cp -r ../index.html ../content .
-          git add -A
-          git commit -m "Automated Release from $GITHUB_REPOSITORY"
-          git push
+
+          # Commit en push
+          git config user.name "Geonovum CI"
+          git config user.email "noreply@geonovum.nl"
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "$COMMIT_MSG"
+            git push origin $BRANCH
+      
+            gh pr create --base main --head $BRANCH \
+            --title "$COMMIT_MSG" \
+            --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
+          else
+          echo "Geen wijzigingen om te committen. PR wordt niet aangemaakt."
+          fi
