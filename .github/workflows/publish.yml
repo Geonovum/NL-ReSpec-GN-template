@@ -1,12 +1,17 @@
 name: Publish
 on:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-22.04
-    environment: production
+    environment:
+      name: production
+    permissions:
+      contents: write
+      pull-requests: write
 #    if: github.event_name == 'release'
     steps:
       - uses: actions/checkout@v4
