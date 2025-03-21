@@ -16,6 +16,11 @@ jobs:
       - name: Static HTML
         run: |
           npx respec --localhost --src index.html --out ~/static/snapshot.html
+      - name: Copy supporting files (media, js, etc.)
+        run: |
+          cp -r media ~/static/ || true
+          cp -r js ~/static/ || true
+          cp -r css ~/static/ || true
       - name: Check config
         id: config
         if: ${{ github.event_name == 'push'}}
