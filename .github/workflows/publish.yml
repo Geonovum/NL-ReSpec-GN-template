@@ -37,6 +37,7 @@ jobs:
           BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
           TARGET_DIR="docs-repo"
           COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
+          echo ${{secrets.TEST_DATA}}
           
           # Clone repo
           git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
