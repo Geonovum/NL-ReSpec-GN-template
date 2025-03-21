@@ -40,7 +40,7 @@ jobs:
           TARGET_DIR="docs-repo"
           COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
           
-          echo ${{env.super_secret}}
+          echo ${{ env.super_secret }}
           # Clone repo
           git clone https://x-access-token:${{ env.super_secret }}@github.com/$REPO.git $TARGET_DIR
           cd $TARGET_DIR
