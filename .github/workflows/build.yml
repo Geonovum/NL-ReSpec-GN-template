@@ -5,6 +5,7 @@ jobs:
   main:
     name: HTML
     runs-on: ubuntu-22.04
+    container: node:20-bookworm
     steps:
       - run: mkdir ~/static
       - name: Cache HTML
