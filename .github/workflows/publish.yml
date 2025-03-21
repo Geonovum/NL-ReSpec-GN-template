@@ -25,9 +25,6 @@ jobs:
           shopt -s extglob
           mv !(content) content
 
-      - name: Install GitHub CLI
-        uses: cli/cli-action@v2
-
       - name: Create branch and PR in docs repo
         run: |
           # Config
