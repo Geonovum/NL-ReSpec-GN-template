@@ -31,6 +31,8 @@ jobs:
           shopt -s extglob
           mv !(content) content
       - name: Create branch and PR in docs repo
+        env:
+          SUPER_SECRET: ${{ secrets.GH_PUSH_TOKEN }}
         run: |
           # Config
           REPO="Geonovum/docs.geostandaarden.nl"
@@ -39,7 +41,7 @@ jobs:
           COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
           
           # Clone repo
-          git clone https://x-access-token:${{ env.TEST_DATA }}@github.com/$REPO.git $TARGET_DIR
+          git clone https://x-access-token:$SUPER_SECRET@github.com/$REPO.git $TARGET_DIR
           cd $TARGET_DIR
 
           # Maak branch
