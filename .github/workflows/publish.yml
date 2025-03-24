@@ -35,7 +35,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Geonovum/docs.geostandaarden.nl
-          token: ${{ secrets.GH_PUSH_TOKEN }}
           path: docs.geostandaarden.nl
 
       - name: Copy output
