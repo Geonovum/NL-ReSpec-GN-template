@@ -12,7 +12,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-#    if: github.event_name == 'release'
+
     steps:
       - uses: actions/checkout@v4
 
@@ -30,75 +30,45 @@ jobs:
           mkdir content
           shopt -s extglob
           mv !(content) content
-      name: Publish
-      on:
-        workflow_call:
-        workflow_dispatch:
 
-      jobs:
-        release:
-          name: Release
-          runs-on: ubuntu-22.04
-          environment:
-            name: production
-          permissions:
-            contents: write
-            pull-requests: write
+      - name: Clone docs repo
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: Geonovum
+          repository: docs.geostandaarden.nl
+          access_token: ${{ secrets.GH_PUSH_TOKEN }}
+          clone_dir: docs-repo
 
-          steps:
-            - uses: actions/checkout@v4
+      - name: Install GitHub CLI
+        uses: cli/cli-action@v2
 
-            - name: Recover HTML
-              uses: actions/cache@v4
-              with:
-                path: ~/static
-                key: ${{ github.run_id }}
+      - name: Create branch and PR
+        env:
+          GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+        run: |
+          cd docs-repo
 
-            - name: Gather files
-              run: |
-                rm -f *.md *.html
-                mv ~/static/* ./
-                mv snapshot.html index.html
-                mkdir content
-                shopt -s extglob
-                mv !(content) content
+          BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
+          COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
 
-            - name: Clone docs repo
-              uses: GuillaumeFalourd/clone-github-repo-action@v2
-              with:
-                owner: Geonovum
-                repository: docs.geostandaarden.nl
-                access_token: ${{ secrets.GH_PUSH_TOKEN }}
-                clone_dir: docs-repo
+          git checkout -b $BRANCH
 
-            - name: Install GitHub CLI
-              uses: cli/cli-action@v2
+          cp -r ../index.html ../content .
 
-            - name: Create branch and PR
-              run: |
-                cd docs-repo
+          git config user.name "Geonovum CI"
+          git config user.email "noreply@geonovum.nl"
 
-                BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
-                COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "$COMMIT_MSG"
+            git push origin $BRANCH
 
-                git checkout -b $BRANCH
-
-                cp -r ../index.html ../content .
-
-                git config user.name "Geonovum CI"
-                git config user.email "noreply@geonovum.nl"
-
-                if [ -n "$(git status --porcelain)" ]; then
-                  git add .
-                  git commit -m "$COMMIT_MSG"
-                  git push origin $BRANCH
-
-                  gh pr create \
-                    --repo Geonovum/docs.geostandaarden.nl \
-                    --base main \
-                    --head $BRANCH \
-                    --title "$COMMIT_MSG" \
-                    --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
-                else
-                  echo "❕ Geen wijzigingen om te committen. PR wordt niet aangemaakt."
-                fi
+            gh pr create \
+              --repo Geonovum/docs.geostandaarden.nl \
+              --base main \
+              --head $BRANCH \
+              --title "$COMMIT_MSG" \
+              --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
+          else
+            echo "❕ Geen wijzigingen om te committen. PR wordt niet aangemaakt."
+          fi
