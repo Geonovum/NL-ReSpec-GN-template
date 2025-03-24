@@ -7,6 +7,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-22.04
+    environment:
+      name: production
     permissions:
       contents: write
       pull-requests: write
@@ -28,33 +30,75 @@ jobs:
           mkdir content
           shopt -s extglob
           mv !(content) content
-      - name: Create branch and PR in docs repo
-        env:
-          GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
-        run: |
-          REPO="Geonovum/docs.geostandaarden.nl"
-          BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
-          TARGET_DIR="docs-repo"
-          COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
+      name: Publish
+      on:
+        workflow_call:
+        workflow_dispatch:
 
-          # Clone repo met token
-          git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
-          cd $TARGET_DIR
+      jobs:
+        release:
+          name: Release
+          runs-on: ubuntu-22.04
+          environment:
+            name: production
+          permissions:
+            contents: write
+            pull-requests: write
 
-          git checkout -b $BRANCH
-          cp -r ../index.html ../content .
+          steps:
+            - uses: actions/checkout@v4
 
-          git config user.name "Geonovum CI"
-          git config user.email "noreply@geonovum.nl"
+            - name: Recover HTML
+              uses: actions/cache@v4
+              with:
+                path: ~/static
+                key: ${{ github.run_id }}
 
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "$COMMIT_MSG"
-            git push origin $BRANCH
+            - name: Gather files
+              run: |
+                rm -f *.md *.html
+                mv ~/static/* ./
+                mv snapshot.html index.html
+                mkdir content
+                shopt -s extglob
+                mv !(content) content
 
-            gh pr create --base main --head $BRANCH \
-              --title "$COMMIT_MSG" \
-              --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
-          else
-            echo "Geen wijzigingen om te committen. PR wordt niet aangemaakt."
-          fi
+            - name: Clone docs repo
+              uses: GuillaumeFalourd/clone-github-repo-action@v2
+              with:
+                owner: Geonovum
+                repository: docs.geostandaarden.nl
+                access_token: ${{ secrets.GH_PUSH_TOKEN }}
+                clone_dir: docs-repo
+
+            - name: Install GitHub CLI
+              uses: cli/cli-action@v2
+
+            - name: Create branch and PR
+              run: |
+                cd docs-repo
+
+                BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
+                COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
+
+                git checkout -b $BRANCH
+
+                cp -r ../index.html ../content .
+
+                git config user.name "Geonovum CI"
+                git config user.email "noreply@geonovum.nl"
+
+                if [ -n "$(git status --porcelain)" ]; then
+                  git add .
+                  git commit -m "$COMMIT_MSG"
+                  git push origin $BRANCH
+
+                  gh pr create \
+                    --repo Geonovum/docs.geostandaarden.nl \
+                    --base main \
+                    --head $BRANCH \
+                    --title "$COMMIT_MSG" \
+                    --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
+                else
+                  echo "❕ Geen wijzigingen om te committen. PR wordt niet aangemaakt."
+                fi
