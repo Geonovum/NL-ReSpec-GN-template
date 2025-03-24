@@ -31,37 +31,26 @@ jobs:
           shopt -s extglob
           mv !(content) content
 
+      - name: Genereer branchnaam
+        id: branch
+        run: echo "name=auto-update-$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
+
       - name: Clone PRIVATE repository
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
           owner: 'Geonovum'
           repository: 'docs.geostandaarden.nl'
+          branch: ${{ steps.branch.outputs.name }}
           access-token: ${{ secrets.GH_PUSH_TOKEN }}
-      - name: Create branch and PR
+      - name: Kopieer gegenereerde output naar docs repo
         run: |
-          cd docs.geostandaarden.nl
-
-          BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
-          COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
-
-          git checkout -b $BRANCH
-
-          cp -r ../index.html ../content .
-
-          git config user.name "Geonovum CI"
-          git config user.email "noreply@geonovum.nl"
-
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "$COMMIT_MSG"
-            git push origin $BRANCH
-
-            gh pr create \
-              --repo Geonovum/docs.geostandaarden.nl \
-              --base main \
-              --head $BRANCH \
-              --title "$COMMIT_MSG" \
-              --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
-          else
-            echo "❕ Geen wijzigingen om te committen. PR wordt niet aangemaakt."
-          fi
+          cp -r index.html content docs.geostandaarden.nl/
+      - name: Maak PR aan
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PUSH_TOKEN }}
+          path: docs.geostandaarden.nl
+          branch: ${{ steps.branch.outputs.name }}
+          title: "Automated update from ${{ github.repository }}"
+          body: "Automatisch gegenereerde publicatie-update vanuit [${{ github.repository }}](https://github.com/${{ github.repository }})"
+          base: main
