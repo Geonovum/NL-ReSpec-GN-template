@@ -39,9 +39,6 @@ jobs:
           access_token: ${{ secrets.GH_PUSH_TOKEN }}
           clone_dir: docs-repo
 
-      - name: Install GitHub CLI
-        uses: cli/cli-action@v2
-
       - name: Create branch and PR
         env:
           GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
