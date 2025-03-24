@@ -36,6 +36,7 @@ jobs:
         with:
           repository: Geonovum/docs.geostandaarden.nl
           path: docs.geostandaarden.nl
+          token: ${{ secrets.GH_PUSH_TOKEN }}
 
       - name: Copy output
         run: |
