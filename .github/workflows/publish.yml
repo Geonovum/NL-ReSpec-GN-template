@@ -32,7 +32,7 @@ jobs:
           mv !(content) content
       - name: Create branch and PR in docs repo
         env:
-          super_secret: ${{ secrets.GH_PUSH_TOKEN }}
+          super_secret: ${{ env.TEST_DATA }}
         run: |
           # Config
           REPO="Geonovum/docs.geostandaarden.nl"
