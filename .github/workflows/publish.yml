@@ -34,11 +34,9 @@ jobs:
       - name: Clone docs repo
         uses: GuillaumeFalourd/clone-github-repo-action@v2
         with:
-          owner: Geonovum
-          repository: docs.geostandaarden.nl
-          access_token: ${{ secrets.GH_PUSH_TOKEN }}
-          clone_dir: docs-repo
-
+          owner: 'Geonovum'
+          repository: 'docs.geostandaarden.nl'
+          access-token: ${{ secrets.GH_PUSH_TOKEN }}
       - name: Create branch and PR
         env:
           GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
