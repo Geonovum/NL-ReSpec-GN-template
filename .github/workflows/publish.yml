@@ -32,36 +32,31 @@ jobs:
           mv !(content) content
       - name: Create branch and PR in docs repo
         env:
-          SUPER_SECRET: ${{ secrets.GH_PUSH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
         run: |
-          # Config
           REPO="Geonovum/docs.geostandaarden.nl"
           BRANCH="auto-update-$(date +'%Y%m%d%H%M%S')"
           TARGET_DIR="docs-repo"
           COMMIT_MSG="Automated update from $GITHUB_REPOSITORY"
-          
-          # Clone repo
-          git clone https://x-access-token:$SUPER_SECRET@github.com/$REPO.git $TARGET_DIR
+
+          # Clone repo met token
+          git clone https://x-access-token:${{ secrets.GH_PUSH_TOKEN }}@github.com/$REPO.git $TARGET_DIR
           cd $TARGET_DIR
 
-          # Maak branch
           git checkout -b $BRANCH
-
-          # Kopieer output
           cp -r ../index.html ../content .
 
-          # Commit en push
           git config user.name "Geonovum CI"
           git config user.email "noreply@geonovum.nl"
-          
+
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "$COMMIT_MSG"
             git push origin $BRANCH
-      
+
             gh pr create --base main --head $BRANCH \
-            --title "$COMMIT_MSG" \
-            --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
+              --title "$COMMIT_MSG" \
+              --body "Automatisch gegenereerde publicatie-update vanuit [$GITHUB_REPOSITORY](https://github.com/$GITHUB_REPOSITORY)"
           else
-          echo "Geen wijzigingen om te committen. PR wordt niet aangemaakt."
+            echo "Geen wijzigingen om te committen. PR wordt niet aangemaakt."
           fi
