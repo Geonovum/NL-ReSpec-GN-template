@@ -31,26 +31,23 @@ jobs:
           shopt -s extglob
           mv !(content) content
 
-      - name: Genereer branchnaam
-        id: branch
-        run: echo "name=auto-update-$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
-
-      - name: Clone PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
         with:
-          owner: 'Geonovum'
-          repository: 'docs.geostandaarden.nl'
-          branch: ${{ steps.branch.outputs.name }}
-          access-token: ${{ secrets.GH_PUSH_TOKEN }}
-      - name: Kopieer gegenereerde output naar docs repo
+          repository: Geonovum/docs.geostandaarden.nl
+          token: ${{ secrets.GH_PUSH_TOKEN }}
+          path: docs.geostandaarden.nl
+
+      - name: Copy output
         run: |
           cp -r index.html content docs.geostandaarden.nl/
-      - name: Maak PR aan
+
+      - name: Create PR
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GH_PUSH_TOKEN }}
           path: docs.geostandaarden.nl
-          branch: ${{ steps.branch.outputs.name }}
-          title: "Automated update from ${{ github.repository }}"
-          body: "Automatisch gegenereerde publicatie-update vanuit [${{ github.repository }}](https://github.com/${{ github.repository }})"
+          branch: auto-update-${{ github.run_id }}
           base: main
+          title: "Automated update from ${{ github.repository }}"
+          body: "Update vanuit workflow"
