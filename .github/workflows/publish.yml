@@ -31,8 +31,8 @@ jobs:
           shopt -s extglob
           mv !(content) content
 
-      - name: Clone docs repo
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+      - name: Clone PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
           owner: 'Geonovum'
           repository: 'docs.geostandaarden.nl'
